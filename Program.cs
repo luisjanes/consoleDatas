@@ -46,6 +46,57 @@
             formatData = String.Format("{0:dd/MM/yyyy hh:mm:ss:ff zzz}", data);
             Console.WriteLine(formatData);
 
+            formatData = String.Format("{0:t}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:d}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:T}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:D}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:f}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:g}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:r}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:R}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:s}", data);
+            Console.WriteLine(formatData);
+
+            formatData = String.Format("{0:u}", data);
+            Console.WriteLine(formatData);
+
+
+            //Add hours, months, years
+            Console.WriteLine("Data controle");
+            Console.WriteLine(data);
+            Console.WriteLine(data.AddDays(12));
+            Console.WriteLine(data.AddMonths(12));
+            Console.WriteLine(data.AddYears(12));
+            Console.WriteLine(data.AddHours(12));
+            Console.WriteLine(data.AddDays(-12));
+
+            var datePlus = data.AddDays(12);
+            Console.WriteLine(datePlus);
+
+            //Compare datas
+            if(data.Year == DateTime.Now.Year)
+            {
+                Console.WriteLine("Is equal");
+            } else
+            {
+                Console.WriteLine("Is different");
+            }
         }
     }
 }
