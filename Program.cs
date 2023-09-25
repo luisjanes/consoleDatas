@@ -1,4 +1,6 @@
-﻿namespace consoleDatas
+﻿using System.Globalization;
+
+namespace consoleDatas
 {
     class Program
     {
@@ -96,6 +98,62 @@
             } else
             {
                 Console.WriteLine("Is different");
+            }
+
+            //CultureInfo
+
+            var pt = new CultureInfo("pt-PT");
+            var br = new CultureInfo("pt-BR");
+            var en = new CultureInfo("en-US");
+            var de = new CultureInfo("de-DE");
+            var atual = CultureInfo.CurrentCulture;
+            Console.WriteLine(DateTime.Now.ToString("D", pt));
+            Console.WriteLine(DateTime.Now.ToString("D", br));
+            Console.WriteLine(DateTime.Now.ToString("D", en));
+            Console.WriteLine(DateTime.Now.ToString("D", de));
+            Console.WriteLine(DateTime.Now.ToString("D", atual));
+
+            //timeZone
+            var dateTime = DateTime.UtcNow;
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(dateTime);
+            Console.WriteLine(dateTime.ToLocalTime());
+
+            var timeZoneTokyo = TimeZoneInfo.FindSystemTimeZoneById("Asia/Tokyo");
+            Console.WriteLine(timeZoneTokyo);
+
+            var hourTokyo = TimeZoneInfo.ConvertTimeFromUtc(dateTime, timeZoneTokyo);
+            Console.WriteLine(hourTokyo);
+
+            //var timezones = TimeZoneInfo.GetSystemTimeZones();
+            //foreach ( var timezone in timezones )
+            //{
+            //    Console.WriteLine(timezone.Id);
+            //    Console.WriteLine(timezone);
+            //    Console.WriteLine(TimeZoneInfo.ConvertTimeFromUtc(dateTime, timezone));
+            //    Console.WriteLine("------------");
+            //}
+
+            //timeSpan
+
+            var timeSpan = new TimeSpan(3, 10, 10, 10);
+            Console.WriteLine(timeSpan);
+
+            var timeSpan2 = new TimeSpan(2, 08, 5 , 6);
+            Console.WriteLine(-timeSpan2+timeSpan);
+            Console.WriteLine(timeSpan2);
+            Console.WriteLine(timeSpan2.Add(new TimeSpan(20,0,0)));
+
+
+            //Métodos
+            Console.WriteLine(DateTime.DaysInMonth(2020, 2));
+            Console.WriteLine(IsWeekend(DateTime.Now.DayOfWeek));
+            Console.WriteLine(DateTime.Now.IsDaylightSavingTime());
+
+            //Verificar se é dia da semana
+            static bool IsWeekend(DayOfWeek today)
+            {
+                return today == DayOfWeek.Saturday || today == DayOfWeek.Sunday;
             }
         }
     }
